@@ -16,7 +16,7 @@ export default function Card({
 		<div className={clsx(
 			"card card-lg bg-base-200 border-2 border-base-300 w-96",
 			{
-				"hover:border-primary hover:shadow-sm hover:bg-base-300 transition-colors": href !== undefined, // Set if href is not undefined
+				"hover:border-primary hover:shadow-sm hover:bg-base-300 transition": href !== undefined, // Set if href is not undefined
 			}
 		)}>
 			<div className="card-body">
