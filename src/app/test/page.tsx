@@ -1,5 +1,6 @@
 "use client";
 
+import Card from "@/components/ui/Card";
 import InputField from "@/components/ui/input/InputField";
 import NavBar from "@/components/ui/nav/NavBar";
 import NavLink from "@/components/ui/nav/NavLink";
@@ -19,6 +20,12 @@ export default function Test() {
 					<NavLink href="/test/non">Test Non</NavLink>
 
 					<NavBar/>
+
+					<Card title="normal" body="normal"/>
+					<Card title="link" body="link" href="/"/>
+
+					<Card title="normal" body="normallllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"/>
+					<Card title="link" body="link" href="/"/>
 				</div>
 			</main>
 		</div>
