@@ -1,16 +1,14 @@
 export default async function Classes({
-	params,
+    params,
 }: Readonly<{
-	params: Promise<{ section: string, topic: string}>
+    params: Promise<{ section: string; topic: string }>;
 }>) {
-	const { section, topic } = await params;
+    const { section, topic } = await params;
 
-	return (
-		<div>
-			<main>
-				<p>{section}</p>
-				<p>{topic}</p>
-			</main>
-		</div>
-	);
+    return (
+        <main>
+            <p>{section}</p>
+            <p>{topic}</p>
+        </main>
+    );
 }

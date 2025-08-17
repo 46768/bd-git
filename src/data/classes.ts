@@ -1,5 +1,4 @@
-import { Data } from "@/lib/dataUtils"
+import { Data } from "@/lib/dataUtils";
 
-const classesData: Data = {
-};
+const classesData: Data = {};
 export default classesData;
