@@ -6,18 +6,22 @@ export interface Section<T=Topic> {
 }
 export interface Topic<T=Subtopic> {
     name: string;
-    content: string;
+    content: React.ReactNode;
     subtopics: Record<string, T>;
 }
 export interface Subtopic {
     name: string;
-    content: string;
+    content: React.ReactNode;
 }
 
 export type DataConstructor = Record<string, SectionConstructor>
 export type SectionConstructor = Omit<Section<TopicConstructor>, "name">;
 export type TopicConstructor = Omit<Topic<SubtopicConstructor>, "name">;
 export type SubtopicConstructor = Omit<Subtopic, "name">;
+
+function formatURL(raw: string): string {
+	return raw.toLowerCase().replace(" ", "_").replace("'", "");
+}
 
 export function compileData(dataConstructor: DataConstructor): Data {
 	const compiledData: Data = {};
@@ -41,13 +45,13 @@ export function compileData(dataConstructor: DataConstructor): Data {
 					content: subtopicConstructor.content,
 				};
 
-				compiledTopic.subtopics[subtopic] = compiledSubtopic;
+				compiledTopic.subtopics[formatURL(subtopic)] = compiledSubtopic;
 			}
 
-			compiledSection.topics[topic] = compiledTopic;
+			compiledSection.topics[formatURL(topic)] = compiledTopic;
 		}
 
-		compiledData[section] = compiledSection;
+		compiledData[formatURL(section)] = compiledSection;
 	}
 	
 	return compiledData;
@@ -69,7 +73,7 @@ export function getContent(
     section: string,
     topic: string,
     subtopic?: string,
-): string {
+): React.ReactNode {
 	try {
     const topicData: Topic = data[section].topics[topic];
     if (subtopic !== undefined) {
@@ -83,17 +87,17 @@ export function getContent(
 }
 
 export function getTopic(data: Data, section: string, topic: string): Topic {
-	try {
-    return data[section].topics[topic];
-	} catch {
+	const sectionData: Section = getSection(data, section);
+	
+	if (!Object.hasOwn(sectionData.topics, topic)) {
 		return nullTopic;
 	}
+    return data[section].topics[topic];
 }
 
 export function getSection(data: Data, section: string): Section {
-	try {
-    return data[section];
-	} catch {
+	if (!Object.hasOwn(data, section)) {
 		return nullSection;
 	}
+	return data[section];
 }

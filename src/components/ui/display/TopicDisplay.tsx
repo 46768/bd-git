@@ -6,18 +6,22 @@ import { useState } from "react";
 
 export default function TopicDisplay({
     topic,
+
+	className=""
 }: Readonly<{
-    topic: Topic;
+    topic: Topic,
+	
+	className?: string,
 }>) {
     const [isMenuOpen, setMenuOpen] = useState<boolean>(true);
 
     return (
-        <div className="flex flex-row h-full">
+        <div className={clsx("flex flex-row h-full", className)}>
 			<div className="grow">
             <div className="prose p-4 w-full max-w-none">
 				<h1>{topic.name}</h1>
 
-				<p className="wrap-anywhere">{topic.content}</p>
+				{topic.content}
 
 				{Object.entries(topic.subtopics).map(
 					([name, subtopic], idx) => (
