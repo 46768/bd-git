@@ -29,6 +29,21 @@ const docsDataRaw: DataConstructor = {
 			}
 		},
 	},
+
+	"Git Intermediates": {
+		topics: {
+		},
+	},
+
+	"Git Advanced": {
+		topics: {
+		},
+	},
+
+	"Collaborating With Git": {
+		topics: {
+		},
+	},
 };
 
 const docsData: Data = compileData(docsDataRaw);

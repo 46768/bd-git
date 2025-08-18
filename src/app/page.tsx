@@ -1,103 +1,72 @@
-import Image from "next/image";
+import Card from "@/components/ui/Card";
 
 export default function Home() {
     return (
-        <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-            <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-                <Image
-                    className="dark:invert"
-                    src="/next.svg"
-                    alt="Next.js logo"
-                    width={180}
-                    height={38}
-                    priority
-                />
-                <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-                    <li className="mb-2 tracking-[-.01em]">
-                        Get started by editing{" "}
-                        <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-                            src/app/page.tsx
-                        </code>
-                        .
-                    </li>
-                    <li className="tracking-[-.01em]">
-                        Save and see your changes instantly.
-                    </li>
-                </ol>
+		<main>
+				<div className="hero bg-base-200">
+					<div className="hero-content">
+						<div className="prose text-base-content">
+							<h1>How to Git</h1>
 
-                <div className="flex gap-4 items-center flex-col sm:flex-row">
-                    <a
-                        className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-                        href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Image
-                            className="dark:invert"
-                            src="/vercel.svg"
-                            alt="Vercel logomark"
-                            width={20}
-                            height={20}
-                        />
-                        Deploy now
-                    </a>
-                    <a
-                        className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-                        href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Read our docs
-                    </a>
-                </div>
-            </main>
-            <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-                <a
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                    href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        aria-hidden
-                        src="/file.svg"
-                        alt="File icon"
-                        width={16}
-                        height={16}
-                    />
-                    Learn
-                </a>
-                <a
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                    href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        aria-hidden
-                        src="/window.svg"
-                        alt="Window icon"
-                        width={16}
-                        height={16}
-                    />
-                    Examples
-                </a>
-                <a
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                    href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Image
-                        aria-hidden
-                        src="/globe.svg"
-                        alt="Globe icon"
-                        width={16}
-                        height={16}
-                    />
-                    Go to nextjs.org →
-                </a>
-            </footer>
-        </div>
+							<div className="flex flex-col">
+								<p>
+									Git is a free and open source distributed
+									version control system designed to handle
+									everything from small to very large projects
+									with speed and efficiency. This website will
+									teach you how to use git as a version
+									control software for your codebase or
+									projects
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div className="flex flex-row">
+				<div className="flex flex-col gap-4 m-4">
+					<Card
+						title="Get Started"
+						body="Start learning git with an IDE"
+						href="/classes"
+					/>
+
+					<Card
+						title="Documentations"
+						body="Text resources without an IDE"
+						href="/docs"
+					/>
+
+					<Card
+						title="Get Git"
+						body="Download git from here"
+						href="https://git-scm.com/downloads"
+					/>
+
+					<Card
+					title="Git Documentations"
+					body="Git documentations"
+					href="https://git-scm.com/docs"
+					/>
+				</div>
+
+				<div className="flex flex-row justify-center m-4 gap-4">
+					<Card
+						title="What is Git?"
+						body="Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency"
+					/>
+
+					<Card
+						title="Why use Git?"
+						body="Git can be incredibly useful for backing up previous versions of your code, ensuring you can always go back to previous version if something bad happened to your code, like accidentally deleting it, or a bug happened and you don't know how to fix it yet. Another thing Git is useful for is for working with other people on a project. Git allows you to collaborate with other people to effectively work together on projects"
+					/>
+
+					<Card
+						title="What is this website for?"
+						body="This website is designed to teach you how to use Git like in the real world. This means editing/creating/deleting files, using Git to version control the files, and using Git to collaborate with other people"
+					/>
+				</div>
+				</div>
+		</main>
     );
 }

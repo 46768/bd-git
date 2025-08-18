@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Topic } from "@/lib/dataUtils";
 import clsx from "clsx";
 import { useState } from "react";
@@ -55,7 +56,7 @@ export default function TopicDisplay({
                                 {Object.entries(topic.subtopics).map(
                                     ([name], idx) => (
                                         <li key={idx}>
-                                            <a href={`#${name}`}>{name}</a>
+                                            <Link href={`#${name}`}>{name}</Link>
                                         </li>
                                     ),
                                 )}

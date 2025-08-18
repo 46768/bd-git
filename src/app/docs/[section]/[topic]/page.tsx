@@ -2,8 +2,9 @@ import SectionTree from "@/components/ui/display/SectionTree";
 import TopicDisplay from "@/components/ui/display/TopicDisplay";
 import classesData from "@/data/docs";
 import { getSection, getTopic, Section, Topic } from "@/lib/dataUtils";
+import Link from "next/link";
 
-export default async function Docs({
+export default async function DocsTopic({
     params,
 }: Readonly<{
     params: Promise<{ section: string; topic: string }>;
@@ -16,9 +17,19 @@ export default async function Docs({
 	console.log(topicData);
 
     return (
-        <main className="h-full flex flex-row">
+        <main className="h-full">
+			<div className="breadcrumbs text-sm bg-base-200 p-4">
+			<ul>
+				<li><Link href="/docs">Docs</Link></li>
+				<li><Link href={`/docs/${section}`}>{sectionData.name}</Link></li>
+				<li><Link href={`/docs/${section}/${topic}`}>{topicData.name}</Link></li>
+			</ul>
+			</div>
+
+			<div className="h-full flex flex-row">
 			<SectionTree section={sectionData}/>
 			<TopicDisplay topic={topicData} className="grow"/>
+			</div>
         </main>
     );
 }

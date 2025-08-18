@@ -1,20 +1,29 @@
 import TopicDisplay from "@/components/ui/display/TopicDisplay";
 import classesData from "@/data/classes";
-import { getTopic, Topic } from "@/lib/dataUtils";
+import { getSection, getTopic, Topic } from "@/lib/dataUtils";
+import Link from "next/link";
 
-export default async function Classes({
+export default async function ClassesTopic({
     params,
 }: Readonly<{
     params: Promise<{ section: string; topic: string }>;
 }>) {
     const { section, topic } = await params;
+	const sectionName: string = getSection(classesData, section).name;
 	const topicData: Topic = getTopic(classesData, section, topic);
 
     return (
         <main className="h-full">
 			<div className="h-full flex flex-row">
 				<div className="flex-1">
-					<TopicDisplay topic={topicData}/>
+					<div className="breadcrumbs text-sm bg-base-200 p-4">
+					<ul>
+						<li><Link href="/classes">Classes</Link></li>
+						<li><Link href={`/classes/${section}`}>{sectionName}</Link></li>
+						<li><Link href={`/classes/${section}/${topic}`}>{topicData.name}</Link></li>
+					</ul>
+					</div>
+					<TopicDisplay topic={topicData} className="bg-base-200"/>
 				</div>
 				<div className="flex-0 divider divider-horizontal"/>
 				<div className="flex-2"/>

@@ -6,6 +6,7 @@ export default function NavBar() {
             <div className="navbar-start flex flex-row gap-4">
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/classes">Classes</NavLink>
+                <NavLink href="/docs">Docs</NavLink>
             </div>
 
             <div className="navbar-center flex flex-row gap-4"></div>

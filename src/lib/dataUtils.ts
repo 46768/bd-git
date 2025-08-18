@@ -20,7 +20,7 @@ export type TopicConstructor = Omit<Topic<SubtopicConstructor>, "name">;
 export type SubtopicConstructor = Omit<Subtopic, "name">;
 
 function formatURL(raw: string): string {
-	return raw.toLowerCase().replace(" ", "_").replace("'", "");
+	return raw.toLowerCase().replace(new RegExp(" ", 'g'), "_").replace(new RegExp("'", 'g'), "");
 }
 
 export function compileData(dataConstructor: DataConstructor): Data {

@@ -1,4 +1,5 @@
 import { Section } from "@/lib/dataUtils";
+import Link from "next/link";
 import clsx from "clsx";
 
 export default function SectionTree({
@@ -23,7 +24,7 @@ export default function SectionTree({
 						{Object.entries(section.topics).map(
 							([name, topic], idx) => (
 							<li key={idx}>
-								<a href={`${hrefPrefix}${name}`}>{topic.name}</a>
+								<Link href={`${hrefPrefix}${name}`}>{topic.name}</Link>
 							</li>
 							),
 						)}
