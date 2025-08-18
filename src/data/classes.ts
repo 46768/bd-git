@@ -1,4 +1,6 @@
-import { Data } from "@/lib/dataUtils";
+import { compileData, Data, DataConstructor } from "@/lib/dataUtils";
 
-const classesData: Data = {};
+const classesDataRaw: DataConstructor = {};
+
+const classesData: Data = compileData(classesDataRaw);
 export default classesData;

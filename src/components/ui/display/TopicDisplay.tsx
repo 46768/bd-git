@@ -1,3 +1,5 @@
+"use client";
+
 import { Topic } from "@/lib/dataUtils";
 import clsx from "clsx";
 import { useState } from "react";
