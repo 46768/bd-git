@@ -7,33 +7,35 @@ import { useState } from "react";
 
 export default function TopicDisplay({
     topic,
+    menu_initial = true,
 
-	className=""
+    className = "",
 }: Readonly<{
-    topic: Topic,
-	
-	className?: string,
+    topic: Topic;
+    menu_initial?: boolean;
+
+    className?: string;
 }>) {
-    const [isMenuOpen, setMenuOpen] = useState<boolean>(true);
+    const [isMenuOpen, setMenuOpen] = useState<boolean>(menu_initial);
 
     return (
         <div className={clsx("flex flex-row h-full", className)}>
-			<div className="grow">
-            <div className="prose p-4 w-full max-w-none">
-				<h1>{topic.name}</h1>
+            <div className="grow overflow-scroll">
+                <div className="prose p-4 w-full max-w-none">
+                    <h1>{topic.name}</h1>
 
-				{topic.content}
+                    {topic.content}
 
-				{Object.entries(topic.subtopics).map(
-					([name, subtopic], idx) => (
-						<div key={idx} id={name}>
-							<h2>{name}</h2>
-							<p className="wrap-anywhere">{subtopic.content}</p>
-						</div>
-					))
-				}
-			</div>
-			</div>
+                    {Object.entries(topic.subtopics).map(
+                        ([name, subtopic], idx) => (
+                            <div key={idx} id={name}>
+                                <h2>{subtopic.name}</h2>
+                                {subtopic.content}
+                            </div>
+                        ),
+                    )}
+                </div>
+            </div>
 
             <div className="flex flex-row items-center">
                 <button
@@ -54,9 +56,11 @@ export default function TopicDisplay({
                             <h1 className="menu-title">{topic.name}</h1>
                             <ul>
                                 {Object.entries(topic.subtopics).map(
-                                    ([name], idx) => (
+                                    ([name, subtopic], idx) => (
                                         <li key={idx}>
-                                            <Link href={`#${name}`}>{name}</Link>
+                                            <Link href={`#${name}`}>
+                                                {subtopic.name}
+                                            </Link>
                                         </li>
                                     ),
                                 )}

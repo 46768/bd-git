@@ -10,26 +10,36 @@ export default async function DocsTopic({
     params: Promise<{ section: string; topic: string }>;
 }>) {
     const { section, topic } = await params;
-	const sectionData: Section = getSection(classesData, section);
-	const topicData: Topic = getTopic(classesData, section, topic);
+    const sectionData: Section = getSection(classesData, section);
+    const topicData: Topic = getTopic(classesData, section, topic);
 
-	console.log(sectionData);
-	console.log(topicData);
+    console.log(sectionData);
+    console.log(topicData);
 
     return (
-        <main className="h-full">
-			<div className="breadcrumbs text-sm bg-base-200 p-4">
-			<ul>
-				<li><Link href="/docs">Docs</Link></li>
-				<li><Link href={`/docs/${section}`}>{sectionData.name}</Link></li>
-				<li><Link href={`/docs/${section}/${topic}`}>{topicData.name}</Link></li>
-			</ul>
-			</div>
+        <main className="h-full flex flex-col">
+            <div className="breadcrumbs text-sm bg-base-200 p-4">
+                <ul>
+                    <li>
+                        <Link href="/docs">Docs</Link>
+                    </li>
+                    <li>
+                        <Link href={`/docs/${section}`}>
+                            {sectionData.name}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href={`/docs/${section}/${topic}`}>
+                            {topicData.name}
+                        </Link>
+                    </li>
+                </ul>
+            </div>
 
-			<div className="h-full flex flex-row">
-			<SectionTree section={sectionData}/>
-			<TopicDisplay topic={topicData} className="grow"/>
-			</div>
+            <div className="h-full flex flex-row grow min-h-0">
+                <SectionTree section={sectionData} hrefPrefix="/docs" />
+                <TopicDisplay topic={topicData} className="grow" />
+            </div>
         </main>
     );
 }

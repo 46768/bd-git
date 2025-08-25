@@ -1,8 +1,18 @@
+import clsx from "clsx";
 import NavLink from "./NavLink";
 
-export default function NavBar() {
+export default function NavBar({
+    className = "",
+}: Readonly<{
+    className?: string;
+}>) {
     return (
-        <div className="navbar w-full bg-base-200 border border-base-300 shadow-sm">
+        <div
+            className={clsx(
+                "navbar w-full bg-base-200 border border-base-300 shadow-sm",
+                className,
+            )}
+        >
             <div className="navbar-start flex flex-row gap-4">
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/classes">Classes</NavLink>

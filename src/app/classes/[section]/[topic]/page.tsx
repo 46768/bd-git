@@ -9,25 +9,41 @@ export default async function ClassesTopic({
     params: Promise<{ section: string; topic: string }>;
 }>) {
     const { section, topic } = await params;
-	const sectionName: string = getSection(classesData, section).name;
-	const topicData: Topic = getTopic(classesData, section, topic);
+    const sectionName: string = getSection(classesData, section).name;
+    const topicData: Topic = getTopic(classesData, section, topic);
 
     return (
         <main className="h-full">
-			<div className="h-full flex flex-row">
-				<div className="flex-1">
-					<div className="breadcrumbs text-sm bg-base-200 p-4">
-					<ul>
-						<li><Link href="/classes">Classes</Link></li>
-						<li><Link href={`/classes/${section}`}>{sectionName}</Link></li>
-						<li><Link href={`/classes/${section}/${topic}`}>{topicData.name}</Link></li>
-					</ul>
-					</div>
-					<TopicDisplay topic={topicData} className="bg-base-200"/>
-				</div>
-				<div className="flex-0 divider divider-horizontal"/>
-				<div className="flex-2"/>
-			</div>
+            <div className="h-full flex flex-col">
+                <div className="">
+                    <div className="breadcrumbs text-sm bg-base-200 p-4">
+                        <ul>
+                            <li>
+                                <Link href="/classes">Classes</Link>
+                            </li>
+                            <li>
+                                <Link href={`/classes/${section}`}>
+                                    {sectionName}
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={`/classes/${section}/${topic}`}>
+                                    {topicData.name}
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="flex flex-row h-full">
+                    <TopicDisplay
+                        topic={topicData}
+                        className="bg-base-200 flex-1"
+                        menu_initial={false}
+                    />
+                    <div className="flex-2" />
+                </div>
+            </div>
         </main>
     );
 }

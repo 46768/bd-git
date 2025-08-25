@@ -26,13 +26,13 @@ export default function RootLayout({
     return (
         <html lang="en" data-theme="light">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased h-svh flex flex-col`}
             >
-                <div className="h-screen flex flex-col">
-					<NavBar/>
+                <div className="grow-0">
+                    <NavBar />
+                </div>
 
-					{children}
-				</div>
+                <div className="grow min-h-0">{children}</div>
             </body>
         </html>
     );
