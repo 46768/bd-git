@@ -1,8 +1,12 @@
 import SectionTree from "@/components/ui/display/SectionTree";
 import TopicDisplay from "@/components/ui/display/TopicDisplay";
 import classesData from "@/data/docs";
-import { getSection, getTopic, Section, Topic } from "@/lib/dataUtils";
+import { generateDataStaticParams, getSection, getTopic, Section, Topic } from "@/lib/dataUtils";
 import Link from "next/link";
+
+export function generateStaticParams() {
+  return generateDataStaticParams(classesData);
+}
 
 export default async function DocsTopic({
     params,
@@ -12,9 +16,6 @@ export default async function DocsTopic({
     const { section, topic } = await params;
     const sectionData: Section = getSection(classesData, section);
     const topicData: Topic = getTopic(classesData, section, topic);
-
-    console.log(sectionData);
-    console.log(topicData);
 
     return (
         <main className="h-full flex flex-col">

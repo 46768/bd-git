@@ -1,8 +1,12 @@
 import SectionDisplay from "@/components/ui/display/SectionDisplay";
 import SectionTree from "@/components/ui/display/SectionTree";
 import classesData from "@/data/docs";
-import { getSection, Section } from "@/lib/dataUtils";
+import { generateDataStaticParams, getSection, Section } from "@/lib/dataUtils";
 import Link from "next/link";
+
+export async function generateStaticParams() {
+  return generateDataStaticParams(classesData);
+}
 
 export default async function DocsSection({
     params,

@@ -1,7 +1,12 @@
+import SectionDisplay from "@/components/ui/display/SectionDisplay";
 import SectionTree from "@/components/ui/display/SectionTree";
 import classesData from "@/data/classes";
-import { getSection, Section } from "@/lib/dataUtils";
+import { generateDataStaticParams, getSection, Section } from "@/lib/dataUtils";
 import Link from "next/link";
+
+export function generateStaticParams() {
+  return generateDataStaticParams(classesData);
+}
 
 export default async function ClassesSection({
     params,
@@ -12,7 +17,7 @@ export default async function ClassesSection({
     const sectionData: Section = getSection(classesData, section);
 
     return (
-        <main className="h-full">
+        <main className="h-full flex flex-col">
             <div className="breadcrumbs text-sm bg-base-200 p-4">
                 <ul>
                     <li>
@@ -26,11 +31,14 @@ export default async function ClassesSection({
                 </ul>
             </div>
 
+			<div className="flex flex-row h-full">
             <SectionTree
                 section={sectionData}
                 className="menu-xl"
                 hrefPrefix="/classes"
             />
+                <SectionDisplay section={sectionData} className="grow" />
+			</div>
         </main>
     );
 }

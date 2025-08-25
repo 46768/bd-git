@@ -1,7 +1,11 @@
 import TopicDisplay from "@/components/ui/display/TopicDisplay";
 import classesData from "@/data/classes";
-import { getSection, getTopic, Topic } from "@/lib/dataUtils";
+import { generateDataStaticParams, getSection, getTopic, Topic } from "@/lib/dataUtils";
 import Link from "next/link";
+
+export function generateStaticParams() {
+  return generateDataStaticParams(classesData);
+}
 
 export default async function ClassesTopic({
     params,

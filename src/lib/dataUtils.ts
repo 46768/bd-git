@@ -90,6 +90,18 @@ export function compileData(dataConstructor: DataConstructor): Data {
     return compiledData;
 }
 
+export function generateDataStaticParams(data: Data): Array<Record<string, string>> {
+	const routes: Array<Record<string, string>> = [];
+	
+	for (const sectionData of Object.entries(data.sections)) {
+		for (const topicData of Object.entries(sectionData[1].topics)) {
+			routes.push({"section": sectionData[1].urlName, "topic": topicData[1].urlName})
+		}
+	}
+
+	return routes;
+}
+
 const nullSection: Section = {
     name: "nil",
     description: "nil",
