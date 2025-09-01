@@ -260,7 +260,17 @@ Version control is a system that records changes to a file or set of files over 
                             ),
                         },
                         "Other Configurations": {
-                            content: <div></div>,
+                            content: (
+								<div>
+									<p>There are some more Git configurations that may be useful. These are</p>
+									<ul>
+										<li>init.defaultbranch - set the default branch name when a repository is created, by default the branch created will be called 'master'</li>
+										<li>core.editor - set Git's editor for commit messages, etc...</li>
+										<li>credential.helper - helps with credentials when collaborating with Git</li>
+									</ul>
+									<p>More configurations can be found <Link href="https://git-scm.com/docs/git-config#_variables">here</Link></p>
+								</div>
+							),
                         },
                     },
                 },
