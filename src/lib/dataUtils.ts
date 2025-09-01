@@ -94,6 +94,9 @@ export function compileData(dataConstructor: DataConstructor): Data {
     return compiledData;
 }
 
+export function generateDataOrder(data: Data) {
+}
+
 export function generateDataStaticParams(
     data: Data,
 ): Array<Record<string, string>> {

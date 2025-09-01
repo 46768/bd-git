@@ -41,19 +41,16 @@ const docsDataRaw: DataConstructor = {
                             <p>
                                 Git is a distributed version control system. It
                                 allows multiple developers to work on a project
-                                simultaneously
+                                simultaneously, you to work efficiently with your projects, helps you track changes and separating feature developments
                             </p>
                         </div>
                     ),
                     subtopics: {
-                        "What is Version Control?": {
+                        "What is Version Control": {
                             content: (
                                 <div>
                                     <p>
-                                        Version control is the management of
-                                        changes to code, keeping track of every
-                                        modification and allowing you to revert
-                                        to previous versions
+Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later. For the examples in this documents, you will use software source code as the files being version controlled, though in reality you can do this with nearly any type of file on a computer.
                                     </p>
                                 </div>
                             ),
@@ -62,7 +59,7 @@ const docsDataRaw: DataConstructor = {
                             content: (
                                 <div>
                                     <p>
-                                        To install Git, download it from the
+                                        To install Git, download it from the{" "}
                                         <Link href="https://git-scm.com/download">
                                             official website
                                         </Link>{" "}
@@ -703,84 +700,345 @@ latex/`}
             },
         },
         "Git Intermediates": {
-            shortDescription: <div></div>,
-            description: <div></div>,
+            shortDescription: (
+                <div>
+                    <p>
+                        Using more intermediate Git features for better project
+                        development workflows
+                    </p>
+                </div>
+            ),
+            description: (
+                <div>
+                    <p>
+                        This section will introduces more intermediate features
+                        such as diffs, branching, and merging branches
+                    </p>
+                    <p>
+                        These features will be useful when you want to develop
+                        more features in your projcet, which may requires a lot
+                        of tracking which files are for which features.
+                    </p>
+                </div>
+            ),
             topics: {
-                "Branching in Git": {
-                    description: <div></div>,
+                "Git Branches": {
+                    description: (
+                        <div>
+                            <p>How to view, make, and use branches in Git</p>
+                        </div>
+                    ),
                     content: (
                         <div>
-                            Branching is a powerful feature in Git that allows
-                            you to work on different parts of a project
-                            simultaneously.
+                            <p>
+                                Git have a feature called branches. A branch are
+                                simply chains of commits. You should already
+                                have a branch called 'main' or 'master'
+                                depending on your Git configuration
+                            </p>
                         </div>
                     ),
                     subtopics: {
+                        "git branch": {
+                            content: (
+                                <div>
+                                    <p>
+                                        The <code>git branch</code> command is
+                                        the main method of interacting with git
+                                        branches. By default, using{" "}
+                                        <code>git branch</code> will list out
+                                        the branch that is in your repository.
+                                        Flags can be passed into the command to
+                                        actions like creating/deleting branches,
+                                        more will be discussed below
+                                    </p>
+                                </div>
+                            ),
+                        },
+                        "Listing Branches": {
+                            content: (
+                                <div>
+                                    <p>
+                                        Running <code>git branch</code> without
+                                        any flags will list out the branches on
+                                        your repository
+                                    </p>
+                                    <p>For example</p>
+                                    <div className="mockup-code">
+                                        <pre data-prefix="$">
+                                            <code>git branch</code>
+                                        </pre>
+
+                                        <pre>
+                                            <code>{`main
+* refactor-cpp
+  refactor_1`}</code>
+                                        </pre>
+                                    </div>
+
+                                    <p>
+                                        The asterisk indicates what branch you
+                                        are currently on, in this example it's
+                                        the refactor-cpp branch
+                                    </p>
+                                </div>
+                            ),
+                        },
                         "Creating a Branch": {
                             content: (
                                 <div>
-                                    Use `git branch [branch_name]` to create a
-                                    new branch.
+                                    <p>
+                                        Creating a new branch can be done by
+                                        doing{" "}
+                                        <code>
+                                            git branch {"<new_branch_name>"}
+                                        </code>
+                                    </p>
+                                    <p>
+                                        This will create a new branch with the
+                                        given name, branching out from the
+                                        branch you're currently on
+                                    </p>
+                                    <p>
+                                        Note: When creating a branch, you will
+                                        not switch to the new branch
+                                        automatically
+                                    </p>
                                 </div>
                             ),
                         },
                         "Switching Branches": {
                             content: (
                                 <div>
-                                    Use `git checkout [branch_name]` to switch
-                                    to another branch.
+                                    <p>
+                                        Switching to a branch can be done using
+                                        the{" "}
+                                        <code>
+                                            git checkout {"<branch_name>"}
+                                        </code>{" "}
+                                        command
+                                    </p>
+                                    <p>
+                                        Another way you can switch is the{" "}
+                                        <code>git switch {"<branch_name"}</code>{" "}
+                                        command
+                                    </p>
                                 </div>
                             ),
                         },
                         "Merging Branches": {
                             content: (
                                 <div>
-                                    Once your changes are ready, use `git merge
-                                    [branch_name]` to merge the branch back into
-                                    the main branch.
+                                    <p>
+                                        When you finish working on a feature in
+                                        a branch, you can merge it into another
+                                        branch. Typically it's the main or
+                                        master branch, but you can merge into
+                                        any branch, even from main to other
+                                        branches
+                                    </p>
+                                    <p>
+                                        To do so, switch to the branch you want
+                                        to merge into, then use the{" "}
+                                        <code>git merge {"<branch>"}</code> to
+                                        merge
+                                    </p>
+                                    <p>
+                                        For example, if you have 2 branches,
+                                        'main' and 'dev', and you want to merge
+                                        'dev' into 'main'. You first switch to
+                                        'main' branch
+                                    </p>
+
+                                    <div className="mockup-code">
+                                        <pre data-prefix="$">
+                                            <code>git checkout main</code>
+                                        </pre>
+                                        <pre>
+                                            <code>
+                                                Switched to branch 'main'
+                                            </code>
+                                        </pre>
+                                    </div>
+
+                                    <p>
+                                        Then you run <code>git merge dev</code>
+                                    </p>
+
+                                    <div className="mockup-code">
+                                        <pre data-prefix="$">
+                                            <code>git merge dev</code>
+                                        </pre>
+                                        <pre>
+                                            <code>{`
+Updating dd5a9e9..9face4a
+Fast-forward
+ file2.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+												`}</code>
+                                        </pre>
+                                    </div>
+                                    <p>
+                                        Typically Git will do a fast forward
+                                        merge if the branches are simple
+                                    </p>
                                 </div>
                             ),
                         },
                     },
                 },
-                "Git Remotes": {
-                    description: <div></div>,
+                "Merging Strategies": {
+                    description: (
+                        <div>
+                            <p>Merging strategies Git uses to merge branches</p>
+                        </div>
+                    ),
                     content: (
                         <div>
-                            Remotes allow you to share your local Git repository
-                            with others, typically on a platform like GitHub.
+                            <p>
+                                When merging branches, Git can employ 2 merging
+                                strategies, those are:
+                            </p>
+                            <ul>
+                                <li>Fast forwarding</li>
+                                <li>Three-way merge</li>
+                            </ul>
                         </div>
                     ),
                     subtopics: {
-                        "Cloning a Repository": {
+                        "Fast Forwarding": {
                             content: (
                                 <div>
-                                    Clone a repository with `git clone
-                                    [repository_url]`.
+                                    <p>
+                                        If the branches being merge are simple,
+                                        for example of merging dev into main
+                                    </p>
+                                    <ul>
+                                        <li>{`main: a -> b -> c`}</li>
+                                        <li>{`dev: a -> b -> c -> d`}</li>
+                                    </ul>
+                                    <p>
+                                        Git can simply merge 'd' directly into
+                                        branch 'main'. This kind of merge will
+                                        not cause merge conflits
+                                    </p>
+                                    <ul>
+                                        <li>{`main: a -> b -> c -> d`}</li>
+                                        <li>{`dev: a -> b -> c -> d`}</li>
+                                    </ul>
                                 </div>
                             ),
                         },
-                        "Adding a Remote": {
+                        "Three-way Merge": {
                             content: (
                                 <div>
-                                    Add a remote repository with `git remote add
-                                    origin [repository_url]`.
+                                    <p>
+                                        If the branches diverges from each
+                                        other, like for example
+                                    </p>
+                                    <ul>
+                                        <li>{`main: a -> b -> c -> e`}</li>
+                                        <li>{`dev: a -> b -> c -> d`}</li>
+                                    </ul>
+                                    <p>
+                                        Git will try it best to merge commit 'd'
+                                        with 'e', if Git can merge then no merge
+                                        conflicts arise, otherwise Git will
+                                        throw a merge conflit and ask you to
+                                        decide how to merge the files. After a
+                                        three-way merge, a new commit will be
+                                        made like so
+                                    </p>
+                                    <ul>
+                                        <li>{`main: a -> b -> c -> e -> f`}</li>
+                                        <li>{`dev: a -> b -> c -> d`}</li>
+                                    </ul>
+                                    <p>
+                                        in this example, commit 'f' is the merge
+                                        commit of commit 'e' and 'd'
+                                    </p>
                                 </div>
                             ),
                         },
-                        "Pushing Changes": {
+                    },
+                },
+                "Git Diff": {
+                    description: (
+                        <div>
+                            <p>
+                                How to use git diff to view the changes between
+                                2 commits
+                            </p>
+                        </div>
+                    ),
+                    content: (
+                        <div>
+                            <p>
+                                Git diff is a tool that you can use to find out
+                                changes between 2 commits. This is useful for
+                                seeing what file changed, and what lines are
+                                changed
+                            </p>
+                        </div>
+                    ),
+                    subtopics: {
+                        "git diff": {
                             content: (
                                 <div>
-                                    Push changes to a remote repository with
-                                    `git push`.
+                                    <p>
+                                        To view a diff, use the{" "}
+                                        <code>git diff {"<commit>"}</code> to
+                                        see changes between the given commit and
+                                        the current commit
+                                    </p>
+                                    <p>
+                                        You can also use{" "}
+                                        <code>
+                                            git diff {"<commit>...<commit>"}
+                                        </code>{" "}
+                                        to see the diff between 2 arbitary
+                                        commits
+                                    </p>
                                 </div>
                             ),
                         },
-                        "Pulling Changes": {
+                        "What is a diff": {
                             content: (
                                 <div>
-                                    Pull changes from a remote repository with
-                                    `git pull`.
+                                    <p>
+                                        A diff typically contains which files
+                                        are modified/added, and line
+                                        insertions/deletions (a change in an
+                                        existing line is 1 insertion and 1
+                                        deletion) of each files. A diff may
+                                        looks like this for example
+                                    </p>
+                                    <div className="mockup-code">
+                                        <pre>
+                                            <code>{`
+diff --git a/file1.txt b/file1.txt
+index e212970..bddd9e2 100644
+--- a/file1.txt
++++ b/file1.txt
+@@ -1 +1 @@
+-file1
++file1modified
+diff --git a/file2.txt b/file2.txt
+index 6c493ff..414b334 100644
+--- a/file2.txt
++++ b/file2.txt
+@@ -1 +1 @@
+-file2
++file2modified
+diff --git a/file3.txt b/file3.txt
+new file mode 100644
+index 0000000..7c8ac2f
+--- /dev/null
++++ b/file3.txt
+@@ -0,0 +1 @@
++file3`}</code>
+                                        </pre>
+                                    </div>
                                 </div>
                             ),
                         },
