@@ -32,7 +32,7 @@ export default function RootLayout({
                     <NavBar />
                 </div>
 
-                <div className="grow min-h-0">{children}</div>
+                <div className="grow min-h-0 overflow-x-hidden">{children}</div>
             </body>
         </html>
     );
