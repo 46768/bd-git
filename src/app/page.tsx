@@ -22,6 +22,10 @@ export default function Home() {
                 </div>
             </div>
 
+			<div className="prose p-4">
+				<h2 className="animate-scroll max-w-none">Welcome to this website</h2>
+			</div>
+
             <div className="flex flex-row">
                 <div className="flex flex-col gap-4 m-4">
                     <Card

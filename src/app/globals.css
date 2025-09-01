@@ -5,3 +5,14 @@
         light --default,
         dark --prefersdark;
 }
+@theme {
+	--animate-scroll: scroll 15s linear infinite;
+	@keyframes scroll {
+		0%{
+			translate: -50vw 0;
+		}
+		100% {
+			translate: 150vw 0;
+		}
+	}
+}
