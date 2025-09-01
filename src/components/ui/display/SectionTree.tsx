@@ -19,15 +19,15 @@ export default function SectionTree({
         <div className={clsx("h-full bg-base-200", className)}>
             <ul className="menu bg-base-200 w-56">
                 <li>
-                    <a className="menu-title" href={hrefPrefix}>
+                    <Link className="menu-title" href={hrefPrefix}>
                         {hrefPrefix}
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         className="menu-title"
                         href={`${hrefPrefix}/${section.urlName}`}
                     >
                         {section.name}
-                    </a>
+                    </Link>
                     <ul>
                         {Object.entries(section.topics).map(
                             ([name, topic], idx) => (

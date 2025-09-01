@@ -8,12 +8,14 @@ export interface Data<T = Section> {
 export interface Section<T = Topic> {
     name: string;
     urlName: string;
+    shortDescription: React.ReactNode;
     description: React.ReactNode;
     topics: Record<string, T>;
 }
 export interface Topic<T = Subtopic> {
     name: string;
     urlName: string;
+    description: React.ReactNode;
     content: React.ReactNode;
     subtopics: Record<string, T>;
 }
@@ -54,6 +56,7 @@ export function compileData(dataConstructor: DataConstructor): Data {
     )) {
         const compiledSection: Section = {
             name: section,
+            shortDescription: sectionConstructor.shortDescription,
             description: sectionConstructor.description,
             urlName: formatURL(section),
             topics: {},
@@ -65,6 +68,7 @@ export function compileData(dataConstructor: DataConstructor): Data {
             const compiledTopic: Topic = {
                 name: topic,
                 urlName: formatURL(topic),
+                description: topicConstructor.description,
                 content: topicConstructor.content,
                 subtopics: {},
             };
@@ -90,20 +94,26 @@ export function compileData(dataConstructor: DataConstructor): Data {
     return compiledData;
 }
 
-export function generateDataStaticParams(data: Data): Array<Record<string, string>> {
-	const routes: Array<Record<string, string>> = [];
-	
-	for (const sectionData of Object.entries(data.sections)) {
-		for (const topicData of Object.entries(sectionData[1].topics)) {
-			routes.push({"section": sectionData[1].urlName, "topic": topicData[1].urlName})
-		}
-	}
+export function generateDataStaticParams(
+    data: Data,
+): Array<Record<string, string>> {
+    const routes: Array<Record<string, string>> = [];
 
-	return routes;
+    for (const sectionData of Object.entries(data.sections)) {
+        for (const topicData of Object.entries(sectionData[1].topics)) {
+            routes.push({
+                section: sectionData[1].urlName,
+                topic: topicData[1].urlName,
+            });
+        }
+    }
+
+    return routes;
 }
 
 const nullSection: Section = {
     name: "nil",
+    shortDescription: "nil",
     description: "nil",
     urlName: "nil",
     topics: {},
@@ -112,6 +122,7 @@ const nullSection: Section = {
 const nullTopic: Topic = {
     name: "nil",
     urlName: "nil",
+    description: "nil",
     content: "nilnil",
     subtopics: {},
 };

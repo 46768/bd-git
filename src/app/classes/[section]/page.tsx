@@ -5,7 +5,7 @@ import { generateDataStaticParams, getSection, Section } from "@/lib/dataUtils";
 import Link from "next/link";
 
 export function generateStaticParams() {
-  return generateDataStaticParams(classesData);
+    return generateDataStaticParams(classesData);
 }
 
 export default async function ClassesSection({
@@ -31,14 +31,18 @@ export default async function ClassesSection({
                 </ul>
             </div>
 
-			<div className="flex flex-row h-full">
-            <SectionTree
-                section={sectionData}
-                className="menu-xl"
-                hrefPrefix="/classes"
-            />
-                <SectionDisplay section={sectionData} className="grow" />
-			</div>
+            <div className="flex flex-row h-full">
+                <SectionTree
+                    section={sectionData}
+                    className="menu-xl pr-10"
+                    hrefPrefix="/classes"
+                />
+                <SectionDisplay
+                    section={sectionData}
+                    className="grow"
+                    hrefPrefix="/classes"
+                />
+            </div>
         </main>
     );
 }

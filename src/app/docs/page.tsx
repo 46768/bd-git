@@ -14,18 +14,19 @@ export default async function Docs() {
                 </ul>
             </div>
 
-			<div className="flex flex-row h-full">
-				<DataTree
-					data={classesData}
-					className="menu-xl pr-10"
-					hrefPrefix={`/docs`}
-				/>
+            <div className="flex flex-row h-full min-h-0">
+                <DataTree
+                    data={classesData}
+                    className="menu-xl pr-10"
+                    hrefPrefix={`/docs`}
+                />
 
-				<DataDisplay
-					data={classesData}
-					className="grow"
-				/>
-			</div>
+                <DataDisplay
+                    data={classesData}
+                    className="grow"
+                    hrefPrefix={`/docs`}
+                />
+            </div>
         </main>
     );
 }

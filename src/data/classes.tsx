@@ -3,12 +3,20 @@ import Link from "next/link";
 
 const classesDataRaw: DataConstructor = {
     name: "Documentations",
-    description: <div></div>,
+    description: (
+        <div>
+            This section serves as documentations for the lessons without the
+            IDE. This will be more extensive than the lessons, and provides more
+            examples
+        </div>
+    ),
     sections: {
         "Git Basics": {
+            shortDescription: <div></div>,
             description: <div></div>,
             topics: {
                 "Introduction to Git": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Git is a distributed version control system. It
@@ -42,6 +50,7 @@ const classesDataRaw: DataConstructor = {
                     },
                 },
                 "Git Configuration": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Before you start using Git, you need to set up your
@@ -83,53 +92,13 @@ const classesDataRaw: DataConstructor = {
                         },
                     },
                 },
-                "Basic Git Commands": {
+                "Understanding Terminologies": {
+                    description: <div></div>,
                     content: (
                         <div>
-                            These are the basic commands you'll need to get
-                            started with Git.
-                        </div>
-                    ),
-                    subtopics: {
-                        "git init": {
-                            content: (
-                                <div>
-                                    Initializes a new Git repository in the
-                                    current directory.
-                                </div>
-                            ),
-                        },
-                        "git add": {
-                            content: (
-                                <div>
-                                    Adds changes to the staging area to be
-                                    committed.
-                                </div>
-                            ),
-                        },
-                        "git commit": {
-                            content: (
-                                <div>
-                                    Commits changes to the repository with a
-                                    descriptive message.
-                                </div>
-                            ),
-                        },
-                        "git status": {
-                            content: (
-                                <div>
-                                    Shows the status of changes in the working
-                                    directory.
-                                </div>
-                            ),
-                        },
-                    },
-                },
-                "Understanding the Git Workflow": {
-                    content: (
-                        <div>
-                            Learn how changes flow through Git's stages: working
-                            directory, staging area, and repository.
+                            Learn Git terminologies and how changes flow through
+                            Git's stages: working directory, staging area, and
+                            repository.
                         </div>
                     ),
                     subtopics: {
@@ -159,7 +128,89 @@ const classesDataRaw: DataConstructor = {
                         },
                     },
                 },
+                "Basic Git Commands": {
+                    description: <div></div>,
+                    content: (
+                        <div>
+                            These are the basic commands you'll need to get
+                            started with Git.
+                        </div>
+                    ),
+                    subtopics: {
+                        "git init": {
+                            content: (
+                                <div>
+                                    Initializes a new Git repository in the
+                                    current directory.
+                                    <div className="mockup-code">
+                                        <pre data-prefix="$">
+                                            <code>git init</code>
+                                        </pre>
+                                        <pre data-prefix=">">
+                                            <code>
+                                                Initialized empty Git repository
+                                                in /path/to/repo/.git
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
+                            ),
+                        },
+                        "git add": {
+                            content: (
+                                <div>
+                                    Adds changes to the staging area to be
+                                    committed.
+                                    <div className="mockup-code">
+                                        <pre data-prefix="$">
+                                            <code>git add .</code>
+                                        </pre>
+                                    </div>
+                                </div>
+                            ),
+                        },
+                        "git commit": {
+                            content: (
+                                <div>
+                                    Commits changes to the repository with a
+                                    descriptive message.
+                                    <div className="mockup-code">
+                                        <pre data-prefix="$">
+                                            <code>
+                                                git commit -m "commit message"
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
+                            ),
+                        },
+                        "git status": {
+                            content: (
+                                <div>
+                                    Shows the status of changes in the working
+                                    directory.
+                                    <div className="mockup-code">
+                                        <pre data-prefix="$">
+                                            <code>git status</code>
+                                        </pre>
+                                        <pre data-prefix=">">
+                                            On branch main
+                                            <br />
+                                            Your branch is up to date with
+                                            'origin/main'.
+                                            <br />
+                                            <br />
+                                            nothing to commit, working tree
+                                            clean
+                                        </pre>
+                                    </div>
+                                </div>
+                            ),
+                        },
+                    },
+                },
                 "Checking Commit History": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Git keeps a detailed history of changes which you
@@ -194,6 +245,7 @@ const classesDataRaw: DataConstructor = {
                     },
                 },
                 "Undoing Changes": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Git allows you to undo changes in various ways
@@ -228,6 +280,7 @@ const classesDataRaw: DataConstructor = {
                     },
                 },
                 "Ignoring Files": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Tell Git to ignore certain files or directories
@@ -262,6 +315,7 @@ const classesDataRaw: DataConstructor = {
                     },
                 },
                 "Viewing Differences": {
+                    description: <div></div>,
                     content: (
                         <div>
                             See changes between files, commits, or branches.
@@ -296,9 +350,11 @@ const classesDataRaw: DataConstructor = {
             },
         },
         "Git Intermediates": {
+            shortDescription: <div></div>,
             description: <div></div>,
             topics: {
                 "Branching in Git": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Branching is a powerful feature in Git that allows
@@ -335,6 +391,7 @@ const classesDataRaw: DataConstructor = {
                     },
                 },
                 "Git Remotes": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Remotes allow you to share your local Git repository
@@ -379,9 +436,11 @@ const classesDataRaw: DataConstructor = {
             },
         },
         "Git Advanced": {
+            shortDescription: <div></div>,
             description: <div></div>,
             topics: {
                 Rebasing: {
+                    description: <div></div>,
                     content: (
                         <div>
                             Rebasing is an advanced technique for integrating
@@ -408,6 +467,7 @@ const classesDataRaw: DataConstructor = {
                     },
                 },
                 "Stashing Changes": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Git stash allows you to temporarily save changes
@@ -436,9 +496,11 @@ const classesDataRaw: DataConstructor = {
             },
         },
         "Collaborating with Git": {
+            shortDescription: <div></div>,
             description: <div></div>,
             topics: {
                 "Pull Requests": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Pull requests (PRs) are used to review and discuss
@@ -466,6 +528,7 @@ const classesDataRaw: DataConstructor = {
                     },
                 },
                 "Git Flow": {
+                    description: <div></div>,
                     content: (
                         <div>
                             Git Flow is a branching model that helps manage

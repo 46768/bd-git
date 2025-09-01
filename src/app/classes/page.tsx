@@ -14,18 +14,19 @@ export default async function Classes() {
                 </ul>
             </div>
 
-			<div className="flex flex-row h-full">
-				<DataTree
-					data={classesData}
-					className="menu-xl pr-10"
-					hrefPrefix="/classes"
-				/>
+            <div className="flex flex-row h-full">
+                <DataTree
+                    data={classesData}
+                    className="menu-xl pr-10"
+                    hrefPrefix="/classes"
+                />
 
-				<DataDisplay
-					data={classesData}
-					className="grow"
-				/>
-			</div>
+                <DataDisplay
+                    data={classesData}
+                    className="grow"
+                    hrefPrefix="/classes"
+                />
+            </div>
         </main>
     );
 }
