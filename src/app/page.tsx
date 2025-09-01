@@ -26,12 +26,6 @@ export default function Home() {
                 <div className="flex flex-col gap-4 m-4">
                     <Card
                         title="Get Started"
-                        body="Start learning git with an IDE"
-                        href="/classes"
-                    />
-
-                    <Card
-                        title="Documentations"
                         body="Text resources without an IDE"
                         href="/docs"
                     />
